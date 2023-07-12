@@ -6,7 +6,7 @@
 
 - Instaladores do site: https://nodejs.org/en/download
 
-  Recomendado para `Windows` e `MacOS`.
+  Recomendado para `Windows` e `macOS`.
 
 - `apt` em `Linux``.
 
