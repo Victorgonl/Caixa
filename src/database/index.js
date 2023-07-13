@@ -1,15 +1,5 @@
-import mongoose from 'mongoose';
+import Database from 'better-sqlite3';
 
-mongoose
-  .connect('mongodb://localhost/sd', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then()
-  .catch((err) => {
-    console.log(err);
-  });
+const db = new Database('database/database.sqlite');
 
-mongoose.Promise = global.Promise;
-
-export default mongoose;
+export default db;

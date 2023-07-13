@@ -1,14 +1,16 @@
-import mongoose from '../../database';
+import db from '../../database';
 
-const usuarioSchema = new mongoose.Schema({
-  nome: { type: String, required: true },
-  email: { type: String, required: true, unique: true, lowercase: true },
-  senha: { type: String, required: true, select: false },
-  dataCriacao: { type: Date, default: Date.now },
-  administrador: {
-    type: Boolean,
-    default: false,
-  },
-});
+const usuarioSchema = `
+  CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    senha TEXT NOT NULL,
+    dataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    administrador BOOLEAN DEFAULT 0
+  );
+`;
 
-export default mongoose.model('Usuario', usuarioSchema);
+db.exec(usuarioSchema);
+
+export default db;
