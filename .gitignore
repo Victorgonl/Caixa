@@ -1,1 +1,3 @@
-/node_modules
+.micromamba
+node_modules
+database
