@@ -1,29 +1,22 @@
 import { Router } from 'express';
-import Database from 'better-sqlite3';
+import db from '../../database';
 
 const router = new Router();
-const db = new Database('database/database.sqlite');
-
-// Criar tabela de usuários
-db.exec(`
-  CREATE TABLE IF NOT EXISTS usuarios (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    senha TEXT NOT NULL
-  );
-`);
 
 router.post('/register', (req, res) => {
   const { nome, email, senha } = req.body;
 
-  const userExists = db.prepare('SELECT * FROM usuarios WHERE email = ?').get(email);
+  const userExists = db
+    .prepare('SELECT * FROM usuarios WHERE email = ?')
+    .get(email);
 
   if (userExists) {
     return res.status(400).send({ error: 'Usuário já existe' });
   }
 
-  const insertUser = db.prepare('INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)');
+  const insertUser = db.prepare(
+    'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)',
+  );
   const result = insertUser.run(nome, email, senha);
 
   if (result.changes > 0) {

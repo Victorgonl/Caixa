@@ -1,6 +1,4 @@
-import db from '../../database';
-
-const usuarioSchema = `
+const Usuario = `
   CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
@@ -11,6 +9,4 @@ const usuarioSchema = `
   );
 `;
 
-db.exec(usuarioSchema);
-
-export default db;
+export default Usuario;

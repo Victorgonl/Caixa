@@ -3,11 +3,6 @@ const app = require('../index');
 import db from '../database';
 
 describe('/auth', () => {
-  beforeAll(() => {
-    // Limpa a tabela de usuários antes de cada teste
-    db.exec('DELETE FROM usuarios;');
-  });
-
   it('Deve cadastrar um usuário ao enviar todos os campos necessários', async () => {
     const user = {
       nome: 'victor',
@@ -35,6 +30,6 @@ describe('/auth', () => {
 });
 
 afterAll(() => {
-  // Fecha a conexão com o banco de dados
+  db.exec('DROP TABLE usuarios;');
   db.close();
 });
