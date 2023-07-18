@@ -6,6 +6,10 @@ const router = new Router();
 router.post('/register', (req, res) => {
   const { nome, email, senha } = req.body;
 
+  if (!nome || !email || !senha) {
+    return res.status(500).send({ error: 'Campos faltando' });
+  }
+
   const userExists = db
     .prepare('SELECT * FROM usuarios WHERE email = ?')
     .get(email);
