@@ -80,7 +80,7 @@ describe('/user', () => {
   });
 });
 
-afterAll(() => {
+/* afterAll(() => {
   db.exec('DROP TABLE usuarios;');
   db.close();
-});
+}); */
