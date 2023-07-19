@@ -2,7 +2,7 @@
 
 ## Ambiente
 
-### Instalação do `Node.js` e `npm`
+### Instalação do **Node.js** e **npm**
 
 Existem algumas formas para instalar o `Node.js` e `npm`, como:
 
@@ -65,7 +65,7 @@ E assim vemos que o `nodejs` está instalado e pronto para uso.
 
 <img src="./images/micromamba_list.png">
 
-### Instalação das dependências do `Node.js`
+### Instalação das dependências do **Node.js**
 
 Dentro do terminal no VSCode, entre:
 
@@ -88,7 +88,7 @@ Com a extensão `SQLite Viewer`, podemos abrir o arquivo do banco de dados para 
 
 <img src="./images/database.png">
 
-## Projeto `Caixa`
+## Projeto **Caixa**
 
 Nosso projeto consiste na execução de testes unitários utilizando `jest` e `supertest` em um servidor `HTTP`.
 
