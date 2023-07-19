@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../index');
 import db from '../database';
 
-describe('/auth', () => {
+describe('/user', () => {
   it('Deve cadastrar um usuário ao enviar todos os campos necessários', async () => {
     const user = {
       nome: 'victor',
@@ -61,7 +61,7 @@ describe('/auth', () => {
     const res = await request(app).post('/user/login').send(user);
 
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty('message');
+    expect(res.body).toHaveProperty('user');
   });
 
   it('Deve retornar erro ao tentar registrar um usuário que já existe', async () => {
