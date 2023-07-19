@@ -52,6 +52,32 @@ describe('/auth', () => {
     expect(res.body).toHaveProperty('error', 'Usuário não encontrado');
   });
 
+  it('Deve permitir que um usuário faça login com as credenciais corretas', async () => {
+    const user = {
+      email: 'victor@ufla',
+      senha: '123',
+    };
+
+    const res = await request(app).post('/user/login').send(user);
+
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('user');
+  });
+
+  it('Deve retornar erro ao tentar registrar um usuário que já existe', async () => {
+    const user = {
+      nome: 'victor',
+      email: 'victor@ufla',
+      senha: '123',
+    };
+
+    await request(app).post('/user/register').send(user);
+
+    const res = await request(app).post('/user/register').send(user);
+
+    expect(res.statusCode).toEqual(400);
+    expect(res.body).toHaveProperty('error', 'Usuário já existe');
+  });
 });
 
 afterAll(() => {
