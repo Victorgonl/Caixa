@@ -49,7 +49,7 @@ A extensão irá instalar o `micromamba` em `./.micromamba/` e em seguida instal
 
 <img src="./images/environment.png">
 
-Os pacotes (`nodejs` e `nmp`) estarão instalados em `./.micromamba/` e não no Sistema Operacional. Assim, poderemos utilziar os pacotes necessários dentro desta instância do VSCode e poder atualizar ou apagar o ambiente quando desejado, excluindo tudo o que foi instalado.
+Os pacotes (`nodejs` e `nmp`) estarão instalados em `./.micromamba/` e não no Sistema Operacional. Assim, poderemos utilizar os pacotes necessários dentro desta instância do VSCode e poder atualizar ou apagar o ambiente quando desejado, excluindo tudo o que foi instalado.
 
 No canto inferior esquerdo do VSCode, irá aparecer o ambiente `micromamba` (`μenv[Caixa]`) ativo.
 
