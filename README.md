@@ -141,9 +141,20 @@ A tabela de usuários será criada de acordo com o script de `app/schemes/Usuari
 
 Os testes estão disponíveis no script `test/user.test.js`, que implementa um conjunto de testes automatizados utilizando a biblioteca `supertest` para testar um servidor `HTTP` com endpoints relacionados à autenticação de usuários.
 
+### Sobre os testes
+
+Os testes tentam executar cadastro e login no banco de dados de diferentes formas, e compara o código de status retornado ao efetuar a ação e compara com o código esperado, validando ou não o teste.
+
+Os códigos podem ser:
+
+- `200: "OK"`: tudo ocorreu como deveria.
+- `400: "Bad Request"`: existe uma má formatação ou conteúdo inválido na requisição.
+- `401: "Unauthorized"`: as credenciais não são válidas ou não possui permissão para acessar o recurso.
+- `404: "Not Found"`: o servidor não encontrou o recurso solicitado.
+
 ### Execução dos testes
 
-Para execução dos testes unitários, utilizamos o comando a seguir:
+Para execução dos testes unitários, utilizamos o comando a seguir no terminal:
 
     npm test
 
