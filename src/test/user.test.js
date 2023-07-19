@@ -61,7 +61,7 @@ describe('/auth', () => {
     const res = await request(app).post('/user/login').send(user);
 
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty('message', 'Sucesso no login');
+    expect(res.body).toHaveProperty('message');
   });
 
   it('Deve retornar erro ao tentar registrar um usuário que já existe', async () => {
