@@ -7,7 +7,7 @@ router.post('/register', (req, res) => {
   const { nome, email, senha } = req.body;
 
   if (!nome || !email || !senha) {
-    return res.status(500).send({ error: 'Campos faltando' });
+    return res.status(400).send({ error: 'Campos faltando' });
   }
 
   const userExists = db

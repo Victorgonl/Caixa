@@ -24,7 +24,7 @@ describe('/auth', () => {
 
     const res = await request(app).post(`/user/register`).send(user);
 
-    expect(res.statusCode).toEqual(500);
+    expect(res.statusCode).toEqual(400);
     expect(res.body).toHaveProperty('error', 'Campos faltando');
   });
 
@@ -61,7 +61,7 @@ describe('/auth', () => {
     const res = await request(app).post('/user/login').send(user);
 
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty('user');
+    expect(res.body).toHaveProperty('message', 'Sucesso no login');
   });
 
   it('Deve retornar erro ao tentar registrar um usuário que já existe', async () => {
