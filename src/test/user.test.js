@@ -36,7 +36,7 @@ describe('/user', () => {
 
     const res = await request(app).post('/user/login').send(user);
 
-    expect(res.status).toBe(401);
+    expect(res.statusCode).toBe(401);
     expect(res.body).toHaveProperty('error', 'Senha incorreta');
   });
 
@@ -48,7 +48,7 @@ describe('/user', () => {
 
     const res = await request(app).post('/user/login').send(user);
 
-    expect(res.status).toBe(404);
+    expect(res.statusCode).toBe(404);
     expect(res.body).toHaveProperty('error', 'Usuário não encontrado');
   });
 
@@ -61,7 +61,7 @@ describe('/user', () => {
     const res = await request(app).post('/user/login').send(user);
 
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty('user');
+    expect(res.body).toHaveProperty('message', 'Sucesso no login');
   });
 
   it('Deve retornar erro ao tentar registrar um usuário que já existe', async () => {
