@@ -81,6 +81,6 @@ describe('/user', () => {
 });
 
 afterAll(() => {
-  //db.exec('DROP TABLE usuarios;');
+  db.exec('DROP TABLE usuarios;');
   db.close();
 });
